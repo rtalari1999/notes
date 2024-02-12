@@ -1,0 +1,69 @@
+## What is Angular17 ?
+
+    1. Angular is a developement platform, built on Typescript.
+        As a platform, Angular includes :
+            1. A component based framework for building  scalable web applications
+            2. A collection of well-integrated libraries that cover  a wide  variety of features, including routing, forms management, client-server communincation , and more
+
+    1. An angular is a Framework and platform.
+    ## What is Framework ?
+    =========================================
+        A framework is a pre-built set of libraries, tools, and guidelines designed to help developers build software applications more
+        effieciently.
+        It provides a foundation for  software  developement by offering  a structure  and reusable  components.
+        Frameworks often include pre-defined  functions  and modules  for common  tasks, making easier  for developers to focus on application-specific logic.
+        Frameworks are language -sepcific  and can be used  for various types of applications. 
+
+        for example:
+        =============================
+        web developement frameworks  like Ruby, Django provide  structures for building web applications.
+
+    ## What is platform ?
+    =============================================
+        A platform is a broader concept that encompasses both hardware and software elements that provide an environment for running applications.
+        It includes  the operating system , runtime libraries, and hardware components necessary for executing software. 
+
+        for example:
+        ===============================
+            Windows, cloud platforms(Azure, AWS) that provide infrastructure and services for hosting applications.
+
+## Prerequisites
+==========================
+    To install angular on your local system , you need the following
+        Node.js and NPM(Node Package Manager)
+
+        NPM : Angular, the angular CLI and angular applications depend on npm packages for many features and functions. To download and install  npm packages and npm is installed by default with node.js installation.
+
+            version check
+            =============
+            Node.js - node -v 
+            NPM: npm -v
+
+## How to install Angular CLI ?
+=========================================
+
+    you can use the Angular CLI to create projects, generate  application  and library code, and perform a variety of ongoing development tasks such as testing, building, and deployment.
+
+        command to install angular CLI:  npm install -g @angular/cli
+        check which version is installed: ng -v
+
+## How to create a workspace and new angular application ?
+=================================================================================
+    1. To create a new workspace and initial starter app:
+        Run the cli command ng new and provide the name of application you want.
+
+        command to create application : ng new my-app
+
+    2. The ng new command prompts you for information about features to include in the initial app, accept the default by pressing enter key.
+
+    3. The angular CLI installs the necessary  Angular npm packages and other dependencies. this can take a few minutes.
+
+## How to Run the application ?
+=======================================================
+     The Angular CLI includes a server, for you to build and serve your app locally.
+        1. Navigate to the workspace folder, such as my-app
+        2. run app with below command:
+
+            ng serve --open
+
+=============================================================================================================================================
