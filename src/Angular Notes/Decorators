@@ -1,0 +1,94 @@
+## Decorators in Angular
+============================
+    - An Angular Decorators are used to Provide metadata to a class declaration, method, accessor, property.
+    - We use in many places in our angular application 
+    - we use it to decorate components, directives, modules, etc
+    - decorators starts with '@' Symbol.
+
+
+    def:
+        - Typescript feature used to passing metadata.
+        - decorators are functions that will return functions.
+        - decorators are invoked at runtime.
+        - decorators allows us to invoke functions.
+
+        - We apply the decorator using  the form @expression, where expression is the name of the decorator.
+        - Example:
+        ===========
+                @Component is an Angular decorator , which we can attach to an angular Component.
+                - When Angular sees the @Component  decorator applied to a class, it treats the class as a component class.
+
+                - If you do not apply decorator to class, that means without decorator it looks like normal class just like any other class.
+
+                    @Component({
+                        ....
+                    })
+
+                    export class AppComponent {
+                        title = 'app';
+                    }
+
+## Why we need Angular decorator ?
+======================================
+
+    - Angular uses the decorators to provide metadata to the class, method, or property.
+    - For example, the AppComponent must know where to find its template.
+    - We do that by using the templateUrl parameter of the @Component directive.
+    - The @Component decorator also accepts  the values  for styleUrls, encapsulation, changeDetection, etc, which  angular  uses to configure the component.
+
+    - Example:
+    =========
+            @Component({
+                            selector: 'app-hello-world',
+                            standalone: true,
+                            imports:[...],
+                            templateUrl: './hello-world.component.html',
+                            styleUrl: ['./hello-world.component.css']
+                        })
+
+            export class AppComponent{ 
+                ...
+            }
+
+
+## Types of decorators in Angular ?
+=================================================
+        - Angular provides several built-in decorators. We classify them under four different categories.
+        - There are Four types of decorators in an angular:
+                1. Class Decorators
+                2. Property decorators
+                3. Method decorators
+                4. Parameter decorators
+        - All decorators in angular are represented with @ symbol.
+        - The following is the complete list of Decorators in angular.
+
+            1.Class Decorators
+            ==================
+
+                1. @NgModule
+                2. @Component
+                3. @Injectable
+                4. @Directive
+                5. @Pipe
+
+            2. Property Decorators
+                1. @Input
+                2. @Output
+                3. @HostBinding
+                4. @ContentChild
+                5. @ViewChild
+                6. @ContentChildren
+                7. @ViewChildren
+
+            3. Method Decorators
+                1. @HostListner
+                
+            4. Perameter decorators
+                1. @Inject
+                2. @Self
+                3. @SkipSelf
+                4. @Optional
+                5. @Host
+
+
+        

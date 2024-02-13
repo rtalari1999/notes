@@ -1,0 +1,234 @@
+What are Components in an angular ?
+===========================================
+
+    1. Components are the main building blocks for angular  applications. Each component consists of :
+        * An HTML template that renders what renders on the page/ browser. 
+              1. By default we can have [app.component.html].
+
+        * A TypeScript class that defines behavior OR contains business logic. 
+              1. By default we can have [app.component.ts].
+
+        * A CSS selector that defines how the component is used in a template.
+              1. CSS applied to template
+              2. By default we can have [app.component.css]
+              3. if you select SCSS insted of CSS then file will be app.component.scss.
+
+    2. By default angular application creates on component with name app.component inside src/app root folder.
+
+    3. Component is a smaller functionality which can be reused multiple times in the application.
+
+    4. Smaller feature inside a bigger functionality.
+              Authentication    => Module
+              login             => component
+              forgot password   => component
+              register          => component
+
+              Note: A small feature can be written in a component.
+    5. Components Allows in easy maintenance and development.
+
+    6. Tree hierarchy is made of components
+            Example
+            ======
+
+                Parent component
+            Child1   child2     child3
+
+    7. plug and play the components whenever we need.
+
+    8. Tree herarchy starts with AppComponent
+
+    9. AppComponent is the single most important component by default angular provided.
+              - in the index.html file - we can see the selector name <app-root></app-root>
+
+    10. Each component can have @Component decorator.
+            Example
+            ==========
+
+              @Component({
+                .....
+              })
+
+              inside Component decorator will have five important things in standalone i.e in latest version
+                    1. selector
+                    2. standalone
+                    3. imports
+                    4. templateUrl OR template
+                    5. styleUrl
+
+                    @Component({
+                    selector: ' app-root ',
+                    standalone:true,
+                    imports:[],
+                    templateUrl: './app.component.html',
+                    styleUrl: ['./app.component.css']
+                    })
+
+            1. selector:
+            ============
+                - Every component requires a selector.
+                - A selector instructs Angular to instantiate this component whenever it finds the corresponding tag in template HTML.
+                - For example, consider a component hello-world.component.ts that defines its selector as <app-hello-world>.
+                - <app-hello-world> selector instructs  Angular to instantiate this component any time tag <app-hello-world> appears in a template. 
+                - Example
+                ===========
+                    @Component({
+                        selector: 'app-hello-world'
+                    })
+
+            2. standalone:
+            ===============
+                - latest versions of an angular is standalone.
+                - components are stand alone because there is no module file i.e we can import required modules in component itself inside imports.
+                - so, when application running it loads only that component independently.
+                - Example
+                ===========
+                    @Component({
+                        selector: 'app-hello-world',
+                        standalone: true
+                    })
+
+            3. imports:
+            ============
+                - Required libraries, Modules, componets, pipes can be imported in the imports.
+                - Example
+                ===========
+                    @Component({
+                         selector: 'app-hello-world',
+                         standalone: true,
+                         imports:[...]
+                    })
+
+            4. templateUrl OR template
+            ===========================
+                templateUrl:
+                    - A template is a block of HTML that tells Angular how to render the component OR component data in your application OR page.
+                    - defining a template  for your component in one of two ways:
+                            - by referencing an external file.
+                            - writing directly within the component.
+                    - Example
+                    ==========
+                        @Component({
+                            selector: 'app-hello-world',
+                            standalone: true,
+                            imports:[...],
+                            templateUrl: './hello-world.component.html',
+                        })
+
+                template:
+                    - To define a template within the component, add template property to the @Component decorator that contains the HTML you want to use.
+                    - Example
+                    ==========
+                        @Component({
+                            selector: 'app-hello-world',
+                            standalone: true,
+                            imports:[...],
+                            template: '<h1>Hello World!</h1>',
+                        })
+
+                    - If you want your template to span multiple lines, use backticks(``). For example
+                         - Example
+                    ==========
+                        @Component({
+                            selector: 'app-hello-world',
+                            standalone: true,
+                            imports:[...],
+                            template: `<h1>Hello World!</h1>
+                            <p>This template defination spans multiple lines</p>`,
+                        })  
+
+                -  An Angular component requires a template defination using template OR templateUrl. You can not have both properties in a component.
+                
+                - its a good practice to use templateUrl and not template because code will be better organized and easy to maintain.
+
+            5. styleUrls OR styles:
+            =========================
+            Declare component styles for its template in one of two ways. By rendering an external file , or directly with in the component 
+                styleUrl:
+                    - To declare the styles for a component in a separate file, add stylesUrls property to the @component decorator.
+                    - Example
+                    ==========
+                        @Component({
+                            selector: 'app-hello-world',
+                            standalone: true,
+                            imports:[...],
+                            templateUrl: './hello-world.component.html',
+                            styleUrl: ['./hello-world.component.css']
+                        })
+
+                styles:
+                =========
+                    - To declare  the styles within the component, add a styles property to the @component decorator that contains  the styles you want to use.
+                    - Example
+                    ==========
+                        @Component({
+                            selector: 'app-hello-world',
+                            standalone: true,
+                            imports:[...],
+                            templateUrl: '<h1>Hello World!</h1>',
+                            stylesUrl: [' h1{ font-weight: normal; } ']
+                        })
+                    - The styles property can take an array of strings that contain the CSS rule declaration.
+
+
+    11. You can have components inside components
+            Example:
+            ============
+
+                    -login                    => component
+                    -login - user-Validation  => component - component
+
+## How to generate custom component
+=====================================================
+    - command to generate new components 
+        ng generate component <component-name>
+
+                    OR
+        ng g c <component-name>
+
+    
+    - if you want to use component inside another component then import component inside imports of  @component decorator.
+    - Example
+    ==========
+        - component 1
+                        @Component({
+                            selector: 'app-component-one',
+                            standalone: true,
+                            imports:[...],
+                            templateUrl: './component-one.component.html',
+                            stylesUrl: ['./component-one.component.css']
+                        })
+
+                        export class ComponentOne {
+
+                        }
+
+
+        - component 2
+                        component-two.component.ts  ====>    file
+                        ----------------------------------------------
+
+                        @Component({
+                            selector: 'app-component-two',
+                            standalone: true,
+                            imports:[ComponentOne],                         ====>>>>>> Imported component one in component two
+                            templateUrl: './component-two.component.html',
+                            stylesUrl: ['./component-two.component.css']
+                        })
+
+                        component-two.component.html  ====>    file
+                        ---------------------------------------------------
+
+                        <app-component-one></app-component-one>             ====>>>>>> used component-one selctor inside component-two
+
+
+
+===========================================================================================================================================
+                            Thank You!
+===========================================================================================================================================
+
+
+
+
+
+
+

@@ -1,0 +1,127 @@
+## Directives in Angular
+============================
+
+    - All we learn in Directives is :
+        1. Directives in Angular
+        2. Importance of Directives
+        3. Types of Directives
+
+## Angular Directives ?
+=========================
+    - Angular directives  are the most important feature of angular.
+    - Angular directive helps us to manipulate the DOM.
+    - You can change the appearance, behavior, or layout of DOM element using Directives.
+    - They help you to extend HTML
+
+    - There are three types of directives in Angular:
+        1. Component Directive
+        2. Structural Directives
+        3. Attribute Directives
+
+
+
+        1. Component Directives
+        =========================
+            - Components are special Directives in angular.
+            - they are the directive with a template(view).
+            - refered to components class.
+
+        2. Structural Directives
+        ========================
+            - structural directives can change the DOM layout by adding or removing DOM elements.
+            
+            - In Old Versions of angular
+                    - All Structural directives are preceded by Astrix Symbol (*).
+                    - ## Commonly used Structural Directives
+                        1. ngFor
+                        2. ngIf
+                        3. ngSwitch
+
+            - In Latest Versions of Angular
+                    - Structural Directives are Preceded by '@' Symbol.
+            
+                    - ## Commonly used Structural Directives
+                         1. for
+                         2. if
+                         3. else
+                         4. elseIf
+                         5. switch
+
+        3. Attribute Directives
+        =======================
+                    - An Attribute or style directive can  change the appearance or behavior of an element.
+
+                    - ## Commonly used Attribute directives
+                         1. ngModel
+                         2. ngClass
+                         3. ngStyle
+
+
+## Angular directives with Examples:
+=======================================================================================================================================
+    1. Component Directives :
+            - refred to components class
+
+    
+
+    2. Structural Directives :
+
+                ngFor OR for :
+                ============
+                    - The ngFor is an angular structural directive, which repeats aportion of the HTML template once per each item from an iterable list(Collection).
+
+                    - Example of ngFor
+                            ....
+
+                    - Example of for
+                            ....
+
+                
+                ngIf OR if :
+                ====================
+                    - The ngIf directive is used to add or remove HTML elements based on an expression.
+                    - The expression must return a boolean value.
+                    - If the expression is false then the element is removed, else the element is inserted.
+
+                    - Example of ngIf
+                            .....
+
+                    - Example of if
+                            ....
+
+                ngSwitch OR switch :
+                ===================
+                    - The ngSwitch directive lets you add/remove HTML elements depending on a match expression.
+                    - ngSwitch directive is used along with ngSwitchCase and ngSwitchDefault
+                    - Example of ngSwitch
+                            .....
+                    - Example of switch
+                            ....
+
+    3. Attribute Directives :
+                ngModel :
+                ===================
+                    - The ngModel directive is used to achieve the TWO WAY DATA BINDING.
+                    - We have covered ngModel directive in Data Binding in Angular class.
+
+
+
+                ngClass :
+                ==================
+                    - the ngClass directive is used  to add or remove the CSS classes from an HTML element. 
+                    - Using the ngClass one can create dynamic Styles in HTML pages.
+
+                    - Example of ngClass :
+                            .....
+
+
+
+                ngStyle :
+                ===================
+                    - ngStyle is used to  change the  multiple style properties of our HTML elements.
+                    - we can also bind these properties to values that can be updated by the user or our component.
+
+                    - Example of ngStyle :
+                            .....
+
+

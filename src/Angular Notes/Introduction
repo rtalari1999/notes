@@ -1,4 +1,5 @@
-## What is Angular17 ?
+## What is Angular 17 ?
+================================
 
     1. Angular is a developement platform, built on Typescript.
         As a platform, Angular includes :
@@ -65,5 +66,7 @@
         2. run app with below command:
 
             ng serve --open
+
+        3. Now, you can see an angular application.
 
 =============================================================================================================================================
