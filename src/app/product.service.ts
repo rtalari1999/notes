@@ -21,7 +21,7 @@ export class ProductService {
     return request;
   }
 
-  updateProduct(id:number, product:any) : Observable<any>{
+  updateProduct(id:any, product:any) : Observable<any>{
     const request = this.http.put(this.target_url + "/" + id, product);
     return request;
   }
