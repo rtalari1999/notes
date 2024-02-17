@@ -1,0 +1,10 @@
+## How to Share data between Components ?
+=============================================
+
+    - There are several ways to share data between components in Angular:
+            - ** Share data between components  using service file.
+            - ** Create reusable components  and pass data to component.
+            - ** Parent to Child : Share via input.
+            - ** Child to Parent : share via Output() and EventEmiter.
+            - ** Unrelated components: sharing data with a service
+            - ** Share data through Angular route.

@@ -1,0 +1,44 @@
+## Services in Angular :
+================================================
+    - Service is a piece of reusable code with focused purpose.
+    - A code that you will use in many components across your application.
+    - Our components need to access the data.
+    - You can write data access code in each component, but it is very inefficient and breaks the rule of single responsibility.
+    - The component must focus on presenting data to the user.
+    - The task of getting data from the back-end server must be delegated to some other class. we call such a class a service class.
+    - because it provides the service of providing data to everycomponent that needs it.
+
+
+## What Angular Services are used for
+==============================================
+    - Services are independent of components
+    - share data across components
+    - we can make external API calls i.e connecting to back-end API's and getting response and serving across the components as required.
+
+## Advantages of Services in angular :
+==============================================
+    1. Services are easy to maintain and test.
+    2. They are easy to debug.
+    3. we can reuse the services at many places.
+
+## How to create a service in angular :
+===============================================
+    - An angular Service is a simply javascript function.
+    - and all we need to do is to create a class and add methods & properties.
+    - then we can create  an instance of this class in our component and call its methods.
+    - One of the best uses of services is to get the data from the data source.
+    - let us create a simple service, which gets data and passes it to our component.
+
+
+
+    - Now, Create instance in component. let's see how we will
+
+        - create instance of service in constructor of component. =======>>>>>> this is one way
+        - In real-life Angular apps, we use the dependency injection in angular.
+            - i.e inject the services in constructor to use.
+            - first, import service inside component
+            - second, import inside providers in @component decorator.
+            - third, inject into constructor of a class
+                    constructor(private service : ServiceName){}
+
+            - with reference you can access all methods of service class.
