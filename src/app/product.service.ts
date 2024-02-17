@@ -1,31 +1,33 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductService {
-    endPoint = "http://localhost:3000/product";
-    constructor(private http: HttpClient){}
-    getProducts() {
-        
-       return this.http.get(this.endPoint);
-    }
 
-    addProductList(){
-        let params = new HttpParams()
-        .set('para1', "value1")
-        .set('para2','value2');
-        let product = {"name":"Demo5", "mobile":9900887766}
-        let header = {'content-type' : 'application/json'}
-        return this.http.post(this.endPoint,product,{headers:header, params:params});
-    }
-    putProductList(id:number){
-        let product = {"name":"Raju"}
-        console.log(this.endPoint + '/'+ id)
-        return this.http.put(this.endPoint + '/'+ id,product);
-    }
-    deleteProductList(id:number){
-        let product = {"name":"Raju"}
-        console.log(this.endPoint + '/'+ id)
-        return this.http.delete(this.endPoint + '/'+ '982e');
-    }
+  target_url = "http://localhost:3000/ProductList";
+
+  constructor(private http : HttpClient) { }
+
+  getProducts(): Observable<any>{
+    const request = this.http.get(this.target_url);
+    return request;
+  }
+
+  addNewProduct(product:any) : Observable<any>{
+    const request = this.http.post(this.target_url, product);
+    return request;
+  }
+
+  updateProduct(id:number, product:any) : Observable<any>{
+    const request = this.http.put(this.target_url + "/" + id, product);
+    return request;
+  }
+
+  deleteProduct(id:number): Observable<any>{
+    const request = this.http.delete(this.target_url + "/" + id);
+    return request;
+  }
 }

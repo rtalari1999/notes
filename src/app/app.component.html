@@ -1,20 +1,50 @@
-<button type="button" class="btn btn-primary" (click)="getproductList()"> Products List</button> 
-<button type="submit" class="btn btn-primary" (click)="addProduct()">add Product</button> 
-<button type="submit" class="btn btn-primary" (click)="putProductList()">update Product</button> 
-<button type="submit" class="btn btn-primary" (click)="deleteProductList()">delete Product</button> 
-<table class="table table-border table-sm">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Mobile Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for(product of productsList; track product){
-    <tr>
-      <td>{{product.name}}</td>
-      <td>{{product.mobile}}</td>
-    </tr>
-  }
-  </tbody>
-</table>
+<div>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        
+      </a>
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+
+  <div class="product-buttons">
+    <button type="button" class="btn btn-outline-primary" (click)="getProductList()">Product List</button>
+    <button type="button" class="btn btn-outline-secondary">Add Product</button>
+    <button type="button" class="btn btn-outline-warning">Update Product</button>
+    <button type="button" class="btn btn-outline-danger">Delete Product</button>
+  </div>
+
+  <h4>List of Products</h4>
+  <div class="container">
+    <table class="table table-bordered table-sm table-striped">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Product Price</th>
+          <th>Product Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if( productList ){
+        @for(product of productList; track product){
+        <tr>
+          <td> {{product.pName}} </td>
+          <td>{{product.pPrice}}</td>
+          <td>{{product.pDescription}}</td>
+        </tr>
+      }
+    }
+      @else {
+        <tr>
+          <td colspan="3">No Records available</td>
+        </tr>
+      }
+      </tbody>
+    </table>
+  </div>
+
+
+</div>

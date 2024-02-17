@@ -13,38 +13,46 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'notes';
-  productService: any;
-  productsList:any;
+  productList: any;
+  addedProduct: any;
+  updatedProduct: any;
+  deletedProductItem: any;
 
-  constructor(private product: ProductService){
+  constructor(private productService: ProductService){}
 
-  }
-
-  getproductList(){
-     this.product.getProducts().subscribe((x:any) => {
-      console.log(x)
-      this.productsList = x
-      console.log('product list ', this.productsList)
-
-    });
-  }
-
-  addProduct(){
-    this.product.addProductList().subscribe((x:any) =>{
-      this.getproductList();
-      console.log('Post product list ', x)
-
+  getProductList(){
+    this.productService.getProducts().subscribe((product:any) =>{
+      this.productList = product;
     })
   }
 
-  putProductList(){
-    this.product.putProductList(1).subscribe((x:any) =>{
-      console.log(x);
+  addProductList(){
+    const product = {};
+    this.productService.addNewProduct(product).subscribe((product:any) =>{
+      console.log("added product", product)
+      this.addedProduct = product;
+      this.getProductList();
     })
   }
+
+  updateProductList(){
+    const product = {};
+    const id: number = 1;
+    this.productService.updateProduct(id, product).subscribe((product:any) =>{
+      console.log("updated product", product)
+      this.updatedProduct = product;
+      this.getProductList();
+    })
+  }
+
   deleteProductList(){
-    this.product.deleteProductList(5).subscribe((x:any)=>{
-      console.log(x);
+    const id: number = 1;
+    this.productService.deleteProduct(id).subscribe((product:any) =>{
+      console.log("deleted product", product)
+      this.deletedProductItem = product;
+      this.getProductList();
     })
   }
+ 
+
 }

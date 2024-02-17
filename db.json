@@ -22,5 +22,34 @@
       "name": "Demo5",
       "mobile": 9900887766
     }
+  ],
+
+
+  "ProductList":[
+    {
+      "pName": " Apple S6",
+      "pPrice": 20000,
+      "pDescription": "Apple S6 is the old version of an apple",
+      "pFeatures": {}
+    },
+    {
+      "pName": " Apple S7",
+      "pPrice": 30000,
+      "pDescription": "Apple S7 is the old version of an apple",
+      "pFeatures": {}
+    },
+    {
+      "pName": " Apple X",
+      "pPrice": 50000,
+      "pDescription": "Apple X is the intermediate version of an apple",
+      "pFeatures": {}
+    },
+    {
+      "pName": " Apple 15",
+      "pPrice": 120000,
+      "pDescription": "Apple 15 is the New version of an apple",
+      "pFeatures": {}
+    }
   ]
 }
+
