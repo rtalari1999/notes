@@ -1,0 +1,61 @@
+## What is @Output decorator in Angular ?
+================================================================
+    - In Angular @Output() decorator is used to make data flow between the child and the parent component.
+    - Here the data flow occurs from child component to parent component.
+    - @Output() marks a property in a child component as a doorway through which data can travel from the child to the parent.
+    - child component uses the @Output() property to raise an event to notify the parent component to make the change.
+    To @Output must have the 'EventEmmiter'.
+    - EventEmmiter is a class in @angular/core that we use to emit custom events.
+
+    To make data flow between child component to parent component we must configure the components.
+        - Configuring is nothing but to setup an operation especially in an particular way:
+                                        @Output
+            
+                                             data flow
+            Parent Component     <<<<<<<<<<<===================     Child Component
+
+        - Configuring child component;
+            - here in this example in an <input> user can enter a value and click a button that raises an event.
+            - The EventEmitter then relays the data to the parent component.
+
+
+                    - Here I have created two components one is the decorator component and another is the app component , consider that decorator component as an child component and app component as an parent component
+
+                    - In the decorator.component.ts it mean in child component
+
+                                 import Output and EventEmittor
+                   -  Decorate a property with @Output(). Then assign a name newItemEvent for @Output() has a type of EventEmittor, which means it's an event.
+                    - Create an addNewItem() method in the same component class. The addNewItem() function uses the @Output(), newItemEvent, to raise an event with the value the user types into the <input>
+                                import { Output, EventEmitter } from ‘@angular/core’;
+
+                                export class ItemOutputComponent {
+
+                                @Output() newItemEvent = new EventEmitter<string>();
+
+                                addNewItem(value: string) {
+                                this.newItemEvent.emit(value);
+                                }
+                                }
+
+                    - new EventEmitter<string>() Tells Angular to create a new event emitter and that the data it emits is of type string. EventEmitter<string> is the type of @Output() decorator
+                    In the decorator.component.html it mean in child component
+
+                                <label for=”item-input”>Add an item:</label>
+                                <input type=”text” id=”item-input” #newItem>
+                                <button type=”button” (click)=”addNewItem(newItem.value)”>Add to parent’s list</button>
+
+                   - In the HTML <input> with a template reference variable, #newItem, where the user types in an item name. The value property of the #newItem variable stores what the user types into the <input>.
+                    - The button element with the click event as explained above.
+                    - The click event is bound to the addNewItem() method in the child component class. The addNewItem() method takes as its argument the value of the #newItem.value property.
+                    - Now lets configure the parent element app.component.ts
+                    - Bind the parent’s method to the child’s event.
+                    - Put the child selector, here <app-decorator> , within the parent component's template, app.component.html.
+                    - The event binding, (newItemEvent)=’addItem($event)’, connects the event in the child, newItemEvent, to the method in the parent, addItem().
+                    - The $event contains the data that the user types into the <input> in the child template.
+                    - To see the @Output() working, add the following to the parent's template
+                    - The *ngFor iterates over the items in the items array. When you enter a value in the child's <input> and click the button, the child emits the event and the parent's addItem() method pushes the value to the items array and new item renders in the list.
+                                <app-item-output (newItemEvent)=”addItem($event)”></app-item-output>
+
+                                <ul>
+                                <li *ngFor=”let item of items”>{{item}}</li>
+                                </ul>

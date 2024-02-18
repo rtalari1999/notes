@@ -1,0 +1,157 @@
+## Pipes in angular ?
+===================================================
+
+    - Angular Pipes takes data as input  and formats or transform the data to display in the template.
+    - We use them to change the appearance of the data before presenting it to the user.
+    - The most common use case of pipes is displaying the dates in the correct format as per the user's locate.
+
+
+## Angular Pipes Syntax 
+====================================================
+
+    - The syntax of the pipe as follows
+
+        Expression | pipeOperator[:pipeArguments]
+    
+    - where
+            Expression : is the expression, which used to transform.
+            |          : is the Pipe Character
+            pipeOperator: name of Pipe
+            pipeArguements: arguments to the Pipe
+
+## Pipes Example
+===================================================
+
+    - In this example let's use Angular built pipe to transform the date.
+
+        Example
+            Component Class
+
+            import { Component } from '@angular/core';
+            import { FormsModule } from '@angular/forms';
+            
+            @Component({
+                selector: 'app-root',
+                templateUrl: `<p> Unformatted date : {{toDate }} </p>
+                            <p> Formatted date : {{toDate | date}} </p>` 
+            }) 
+            export class AppComponent 
+            { 
+                title: string = 'pipe Example' ; 
+                toDate: Date = new Date(); 
+            }
+
+            - In this example , we are taking current date and transforming it into the easily readable format using date pipe.
+
+## Passing Arguments to pipes
+========================================================
+
+    - We can also pass optinal arguments to the pipe.
+    - The arguments added to the pipe using a colon (:) sign followed by the value of the argument.
+    - If there are multiple arguments separate each of them with the colon (:).
+    - For Example
+        =================
+            {{ toDate | date:'medium' }}
+
+
+## Chaining Pipes
+==========================================================
+    - Pipes can be chained together to make use of multiple pipes in one expression.
+    - Example
+    ==============
+       {{ toDate | date  | uppercase }}
+
+## The Angular Built in Pipes
+==========================================================
+    - The Angular has several built-in pipes, which you can use in your application.
+    - Some of the important pipes are :
+    ==================================
+            1. date
+            2. uppercase
+            3. lowercase
+            4. number
+            5. currency
+
+## How to create Custom Pipes
+=========================================================
+    - We can create custom pipe to transfor data into desired format.
+    - There are some built-in pipes but if these built pipes do not cover your needs, then we can create our own pipe in anglar.
+    - To create a custom pipe, first we need to create a pipe class.
+    - The pipe class must implement the pipe transform interface.
+    - we also decorate it with @pipe decorator.
+    - Give a name to the pipe under name metadata of the @pipe decorator.
+    - finally, we create the transform method, which transforms given value to the desired output.
+
+    To create a Custom Pipe, first, You need to follow these steps
+
+       - Create a pipe class
+            export class TempConverterPipe implements PipeTransform {
+ 
+ 
+            }
+       - Decorate the class with @pipe decorator.
+            @pipe({
+                ....
+            })
+            export class TempConverterPipe implements PipeTransform {
+            
+            
+            }
+       - Give a name to the pipe in the name meta data of the @pipe decorator. We will use this name in the template.
+                @pipe({
+                name: 'tempConverter'
+                })
+                export class TempConverterPipe implements PipeTransform {
+                
+                
+                }
+       - The pipe class must implement the PipeTransform interface. The interfaces contain only one method transform.
+                interface PipeTransform {
+                transform(value: any, ...args: any[]): any
+                }
+       - The first parameter to the transform method is the value to be transferred. The transform method must transform the value and return the result. You can add any number of additional arguments to the transform method.
+
+                            export class TempConverterPipe implements PipeTransform {
+                        
+                                transform(value: number, unit: string) {
+                                    if(value && !isNaN(value)) {
+                                        if (unit === 'C') {
+                                        var temperature = (value - 32) /1.8 ;
+                                        return temperature.toFixed(2);
+                                        } else if (unit === 'F'){
+                                        var temperature = (value * 1.8 ) + 32
+                                        return temperature.toFixed(2);
+                                        }
+                                    }
+                                    return;
+                                }
+                            
+                            }
+       - Declare the pipe class in the Angular Module (app.module.ts) / in standalone:true add in imports.
+       - Use the custom pipe just as you use other pipes.
+       - Now let us create a filter data pipe, which give you output of search data and if not gives you no data found.
+
+
+       Example
+       =============
+
+                
+                import {Pipe, PipeTransform} from '@angular/core';
+                
+                @pipe({
+                    name: 'tempConverter'
+                })
+                export class TempConverterPipe implements PipeTransform {
+                    transform(value: number, unit: string) {
+                        if(value && !isNaN(value)) {
+                            if (unit === 'C') {
+                                var temperature = (value - 32) /1.8 ;
+                                return temperature.toFixed(2);
+                            } else if (unit === 'F'){
+                                var temperature = (value * 1.8 ) + 32
+                                return temperature.toFixed(2);
+                            }
+                        }
+                        return;
+                    }
+                }

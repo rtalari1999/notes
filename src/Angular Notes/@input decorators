@@ -1,0 +1,63 @@
+## What is the @Input Decorator ?
+==========================================
+
+## Introduction
+===============
+    - In Angular, Components are the building blocks of your application's user interface.
+    - They often need to communicate with each other, passing data from one compoent to another.
+    - One way to achieve this is by using the @Input decorator.
+
+    - The @Input decorator is an essential feature in Angular that allows you to pass data from a parent component to a child component.
+    - It estrablishes a mechanism for sharing information between components, making it possible to create reusable and modular UI components.
+
+## How does it work ?
+========================================
+
+    - When you apply the @Input decorator to a property in a child component, you indicate that this property can receive data from its parent component.
+    - The parent component can then bind to this property and pass data down to the child component.
+
+## Using @Input Decorator
+=============================
+
+    - let's dive into an example to better understand how to use the @Input decorator.
+    step:-1 In the child component(child.component.ts), you define a property with the @Input decorator:
+
+                import { Component, Input } from '@angular/core';
+                
+                @Component({
+                    selector:'app-child',
+                    templateUrl:'./child.component.html',
+                    styleUrls:['./child.component.css']
+                })
+                export  class ChildComponent {
+                    @Input() message: string;
+                }
+
+
+    step:- 2 In parent component template (parent.component.html), you bind to the message property of the child component:
+
+                <app-child [message]="parentMessage"></app-child>
+
+    step:- 3 In the parent component (parent.component.ts), you define the parentMessage property and set its value:
+                import { Component, Input } from '@angular/core';
+                
+                @Component({
+                    selector:'app-parent',
+                    templateUrl:'./parent.component.html',
+                    styleUrls:['./parent.component.css']
+                })
+                export  class ParentComponent {
+                    parentMessage: string = 'Hello from parent!';
+                }
+
+## Benifits of Using @Input Decorator
+=======================================================
+
+Component Reusability: By passing data using the @Input decorator, you can create highly reusable components that can be easily integrated into different parts of your application.
+
+## Clear data flow : The use of @Input makes it clear which properties are intended to be inputs and where the data is coming from.
+
+
+===========================================================================================================================================
+                            Thank you!
+==========================================================================================================================================
