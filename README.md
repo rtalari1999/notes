@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+## If you want to run this application. - 23-batch Updates
+
+  - Clone This repo and checkout specific branch
+  - goto application root folder path
+  - do npm install
+  - after successful npm install run ng serve 
+  - take onemore powershell in ternal and run npx json-server --watch db.json
