@@ -7,39 +7,32 @@
     </div>
   </nav>
 </div>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="product-buttons mb-10" style="background-color: #f8f9fa;">
+  <button type="button" class="btn btn-outline-primary" (click)="getProductList()">Product List</button>
+  <button type="button" class="btn btn-outline-secondary" (click)="addProductList()">Add Product</button>
+  <button type="button" class="btn btn-outline-warning" (click)="updateProductList()">Update Product</button>
+  <button type="button" class="btn btn-outline-warning" (click)="callChildComp()">Call Child Component</button>
+</div>
 </div>
 
 
 <div class="container">
-  <h4>Add/Edit of Product</h4>
+  <div class="add-input">
+    <label for="pName" class="form-label">TITLE : {{title}}</label>
+    <input for="pName" class="form-control" id="pName" [(ngModel)]="title">
+  </div>
+  <div>
+    <button type="button" class="btn btn-outline-primary" (click)="addTitle()">add new title</button>
+  </div>
+  <!-- <h4>Add/Edit of Product</h4>
   <div class="container mb-10">
     <div class="add-input">
       <label for="pName" class="form-label">Product Name : {{addItem.pName}}</label>
       <input for="pName" class="form-control" id="pName" [(ngModel)]="addItem.pName">
-    </div>
-    <div class="add-input">
+    </div> -->
+    <!-- <div class="add-input">
       <label for="pPrice" class="form-label">Product Price : {{addItem.pPrice}}</label>
       <input for="pPrice" class="form-control" id="pPrice" [(ngModel)]="addItem.pPrice">
     </div>
@@ -86,7 +79,13 @@
         }
       </tbody>
     </table>
-  </div>
+  </div> -->
 
 
 </div>
+
+
+@if(childComponent){
+  <app-child [title]="title" [titles]="titles"></app-child>
+}
+
