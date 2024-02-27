@@ -1,4 +1,4 @@
-import { Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 
 @Component({
@@ -8,8 +8,9 @@ import { Subscription, interval } from 'rxjs';
   templateUrl: './child.component.html',
   styleUrl: './child.component.css'
 })
-export class ChildComponent implements OnDestroy , OnInit, OnChanges, DoCheck{
+export class ChildComponent implements OnDestroy , OnInit, OnChanges, DoCheck, AfterViewInit, AfterViewChecked{
   interval!: Subscription;
+  @ViewChild('h') header:any;
   @Input() title:any;
   @Input() titles:any;
   empName ='xyz';
@@ -22,6 +23,7 @@ export class ChildComponent implements OnDestroy , OnInit, OnChanges, DoCheck{
   ngOnInit(): void {
     //this.intervall();
     console.log('title in child', this.title)
+    console.log('header in ngOnInit', this.header);
   }
 
 
@@ -34,6 +36,7 @@ export class ChildComponent implements OnDestroy , OnInit, OnChanges, DoCheck{
   ngOnChanges(changes: SimpleChanges): void {
 
     console.log('on change method', changes);
+    console.log('header in ngOnChanges', this.header);
 
 
     /**
@@ -45,6 +48,19 @@ export class ChildComponent implements OnDestroy , OnInit, OnChanges, DoCheck{
   }
   ngDoCheck(): void {
     console.log('ngDoCheck child component is called')
+    console.log('header in ngDoCheck', this.header);
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit child component is called')
+    console.log('header in ngAfterViewInit', this.header);
+    /**
+     * ngAfterViewInit life cycle hook method is called once the view is loaded
+     */
+  }
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked child component is called')
+    console.log('header in ngAfterViewChecked', this.header);
   }
 
   ngOnDestroy(): void {

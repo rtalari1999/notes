@@ -80,8 +80,11 @@ export class AppComponent implements OnDestroy{
   }
 
   addTitle(){
-    var newTitle = 'C++'
+    var newTitle = 'C++';
+    //var newArr = ['Angular', 'Java', 'Python', 'C'];
+    //this.titles = [...this.titles, newTitle]
     this.titles.push(newTitle);
+    console.log('_____updated array', this.titles)
   }
 
   ngOnDestroy(): void {
