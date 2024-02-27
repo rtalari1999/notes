@@ -27,7 +27,7 @@ export class ProductService {
   }
 
   deleteProduct(id:number): Observable<any>{
-    const request = this.http.delete(this.target_url + "/" + id);
+    const request = this.http.delete(this.target_url + "/" + id); http://localhost:3000/ProductList/2
     return request;
   }
 }

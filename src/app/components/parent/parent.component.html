@@ -1,0 +1,13 @@
+<p>parent works!</p>
+
+@if(!childComponent){
+<app-child [studentArr]="title" (employeeDetails)="getDatafromChild($event)" [mList]="arr"></app-child>
+}
+
+
+<input type="text" [(ngModel)]="title"/>
+
+{{title}}
+
+
+<button class="btn btn-outline-primary" (click)="studentdata()">mlist</button>
