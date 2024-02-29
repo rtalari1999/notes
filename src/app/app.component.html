@@ -86,6 +86,8 @@
 
 
 @if(childComponent){
-  <app-child [title]="title" [titles]="titles"></app-child>
+  <app-child [title]="title" [titles]="titles">
+    <h4 #heading4> Hello  child selector inside : </h4>
+  </app-child>
 }
 
