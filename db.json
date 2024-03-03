@@ -1,0 +1,37 @@
+{
+    "AngularConcepts": [
+        {
+            "name": "Get Started"
+        },
+        {
+            "name": "Introduction"
+        },
+        {
+            "name": "Components"
+        },
+        {
+            "name": "Decorators"
+        },
+        {
+            "name": "Directives"
+        },
+        {
+            "name": "Modules"
+        },
+        {
+            "name": "Services"
+        },
+        {
+            "name": "Pipes"
+        },
+        {
+            "name": "Lifecycle hooks"
+        },
+        {
+            "name": "Angular forms"
+        },
+        {
+            "name": "Interceptions"
+        }
+    ]
+}
