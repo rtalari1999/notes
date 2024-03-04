@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule , ReactiveFormsModule, Validators} from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
 export class User{
@@ -26,11 +26,46 @@ export class AppComponent {
   //   console.log('______onsubmit', this.userDetails);
 
   // }
+  constructor(private fb: FormBuilder){}
 
 
-  registrationForm = new FormGroup({
-    userName : new FormControl('Raju') ,
-    password:  new FormControl(''),
-    conformPassword:  new FormControl('')
+  registrationForm = this.fb.group({
+    userName: ['qwert', Validators.required],
+    password: [''],
+    conformPassword: [''],
+    address: this.fb.group({
+      street: [''],
+      city: [''],
+      pinCode: ['']
+    })
   })
+
+  onSubmit(){
+    console.log('_____________registrationForm', this.registrationForm.value);
+  }
+
+ updateRegistrationForm(){
+  this.registrationForm.patchValue({
+    userName: "qwert",
+    password:  "qwert",
+    conformPassword:  "qwert"
+
+ })
+
+
+
+  // registrationForm = new FormGroup({
+  //   userName : new FormControl('Raju', Validators.required) ,
+  //   password:  new FormControl(''),
+  //   conformPassword:  new FormControl('')
+  // })
 }
+}
+
+
+/****
+ * 
+ * fName
+ * lName
+ * address, city, state, pincode
+ */
