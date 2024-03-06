@@ -1,76 +1,9 @@
-<!-- Example of Template driven form-->
-<!-- <div class="container">
-<form #userForm="ngForm" (ngSubmit)="onSubmit()">
-
-  {{userForm.value | json}}
-  <hr/>
-  {{ userDetails | json }}
-    <div class="form-group">
-      <label>Name</label>
-      <input [class.is-invalid]="name.invalid" type="text" #name="ngModel"  class="form-control"  name="name" [(ngModel)]="userDetails.name" required/>
-      <small [class.d-none]="name.valid" class="invalid-feedback">Name is required</small>
-    </div>
-    {{name.className | json}}
-    {{name.touched}}
-    <div class="mt-2">
-      <button type="submit" class=" btn btn-outline-primary">Submit</button>
-    </div>
-</form>
-</div> -->
-
-<!--
-  ngForm
-  ngModel
-  ngModelGroup
-
-
-  .ts file to .html
-  [()]  .ts to html and .html to .ts
-  [] =>>> property binding .ts to .html
-  (click)=''  ====>>>>> event binding .html to .ts
--->
-
-
-<div class="container">
-  <h2>Registration Form</h2>
-  <hr/>
-  
-  
-  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-    {{ registrationForm.value | json}}
-    <div class="form-group">
-      <label>User Name</label>
-      <input [class.is-invalid]="registrationForm.get('userName')?.invalid && registrationForm.get('userName')?.touched"  
-      type="text"  class="form-control" formControlName="userName"/>
-      <small [class.d-none]="registrationForm.get('userName')?.valid && registrationForm.get('userName')?.touched" class="invalid-feedback">Name is required</small>
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" class="form-control" formControlName="password"/>
+<nav class="navbar">
+  <div class="nav-header">
+    <li><a routerLink="/profile" routerLinkActive="active" ariaCurrentWhenActive="page">Profile</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contact</a></li>
+    <li><a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a></li>
   </div>
-  <div class="form-group">
-    <label>Conform Password</label>
-    <input type="password" class="form-control" formControlName="conformPassword"/>
-</div>
-<h4>Address</h4>
-<div formGroupName="address">
-  <div class="form-group">
-    <label>Street</label>
-    <input 
-      type="text" class="form-control" formControlName="street" />
-  </div>
-  <div class="form-group">
-    <label>City</label>
-    <input type="text" class="form-control" formControlName="city" />
-  </div>
-  <div class="form-group">
-    <label>Pin Code</label>
-    <input type="text" class="form-control" formControlName="pinCode" />
-  </div>
-</div>
-<div class="from-group mt-2">
-  <button class="btn btn-outline-primary" type="submit">submit</button>
-  <button class="btn btn-outline-primary" type="button" (click)="updateRegistrationForm()">update form</button>
-</div>
-  </form>
-</div>
+</nav>
+
+<router-outlet></router-outlet>
