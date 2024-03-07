@@ -1,1 +1,10 @@
 <p>contact works!</p>
+
+<div class="container">
+    <p>user id is : {{user.id}}</p>
+    <p>user name is : {{user.name}}</p>
+</div>
+
+<div>
+    <a [routerLink]="['/contact', 3, 'qwert']" [queryParams]="{page:1, search:'abc'}" routerLinkActive="active" >Redirect to contacts</a>
+</div>

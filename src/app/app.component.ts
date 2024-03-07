@@ -20,52 +20,5 @@ export class User{
 export class AppComponent {
   title = 'notes';
 
-  // userDetails = new User('demo user');
 
-  // onSubmit(){
-  //   console.log('______onsubmit', this.userDetails);
-
-  // }
-  constructor(private fb: FormBuilder){}
-
-
-  registrationForm = this.fb.group({
-    userName: ['qwert', Validators.required],
-    password: [''],
-    conformPassword: [''],
-    address: this.fb.group({
-      street: [''],
-      city: [''],
-      pinCode: ['']
-    })
-  })
-
-  onSubmit(){
-    console.log('_____________registrationForm', this.registrationForm.value);
-  }
-
- updateRegistrationForm(){
-  this.registrationForm.patchValue({
-    userName: "qwert",
-    password:  "qwert",
-    conformPassword:  "qwert"
-
- })
-
-
-
-  // registrationForm = new FormGroup({
-  //   userName : new FormControl('Raju', Validators.required) ,
-  //   password:  new FormControl(''),
-  //   conformPassword:  new FormControl('')
-  // })
 }
-}
-
-
-/****
- * 
- * fName
- * lName
- * address, city, state, pincode
- */
