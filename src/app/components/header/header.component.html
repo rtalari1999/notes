@@ -2,6 +2,9 @@
     <nav class="navbar bg-dark text-bg-secondary">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="#">Navbar</a>
+            
+                <button class="btn btn-primary justify-content-end" (click)="signout()" *ngIf="isLoggedIn == 'true'"> Sign Out</button>
+            
         </div>
     </nav>
 </div>

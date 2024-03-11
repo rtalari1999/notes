@@ -1,0 +1,41 @@
+<div class="position-relative">
+<div class="card position-absolute " style="width: 19rem;" style="margin-left: 35%;margin-top:2%">
+  <div class="container">
+    <h4>Log In</h4>
+    <hr />
+    <div id="errorMsg" class="form-text text-danger">{{errorMsg}}</div>
+    <form [formGroup]="userLoginForm" (ngSubmit)="submitForm()">
+      <!-- <h6>{{ userLoginForm.value | json}}</h6> -->
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email
+          address:<!-- <span [class.d-none]="userLoginForm.get('emailAddress')?.valid && userLoginForm.get('emailAddress')?.touched" class="justify-content-end">(required)</span>--></label>
+        <input type="email"
+          [class.is-invalid]="userLoginForm.get('emailAddress')?.invalid && userLoginForm.get('emailAddress')?.touched"
+          class="form-control" id="userEmail1" aria-describedby="emailHelp" formControlName="emailAddress">
+        <div id="emailHelp"
+          [class.d-none]="userLoginForm.get('emailAddress')?.valid && userLoginForm.get('emailAddress')?.touched"
+          class="form-text invalid-feedback">Please enter a valid email</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password"
+          [class.is-invalid]="userLoginForm.get('password')?.invalid && userLoginForm.get('password')?.touched"
+          class="form-control" class="form-control" id="userPassword" aria-describedby="passwordHelp"
+          formControlName="password">
+        <div id="passwordHelp"
+          [class.d-none]="userLoginForm.get('password')?.valid && userLoginForm.get('password')?.touched"
+          class="form-text invalid-feedback">Password is required.</div>
+      </div>
+      <div class="mb-3">
+        <a href="/login"> Forgot password?</a>
+      </div>
+      <button type="submit" class="btn btn-primary col-12" [disabled]="userLoginForm.invalid">Log In</button>
+      <hr>
+      <div class="mb-3 d-flex justify-content-end">
+        <span class="mr-2">don't have an account?</span> <a href="/register"> create account</a>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

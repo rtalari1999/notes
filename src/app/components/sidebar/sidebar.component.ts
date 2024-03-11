@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularConceptService } from '../../services/angular-concept.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [CommonModule, RouterModule],
   providers: [AngularConceptService],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
