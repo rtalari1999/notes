@@ -9,7 +9,7 @@ import { ChildComponent } from './components/child/child.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HttpClientModule, FormsModule, ChildComponent],
+  imports: [RouterOutlet, FormsModule, ChildComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [ProductService]
