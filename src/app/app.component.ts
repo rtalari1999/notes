@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule , ReactiveFormsModule, Validators} from '@angular/forms';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AuthService } from './guards/auth.service';
 
 export class User{
   name:string;
@@ -14,6 +15,7 @@ export class User{
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule,RouterOutlet, FormsModule, ReactiveFormsModule,RouterLink, RouterLinkActive],
+  providers:[AuthService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -26,7 +28,7 @@ export class AppComponent {
   //   console.log('______onsubmit', this.userDetails);
 
   // }
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder, private authService : AuthService){}
 
 
   registrationForm = this.fb.group({
@@ -54,11 +56,26 @@ export class AppComponent {
 
 
 
+
+
+
   // registrationForm = new FormGroup({
   //   userName : new FormControl('Raju', Validators.required) ,
   //   password:  new FormControl(''),
   //   conformPassword:  new FormControl('')
   // })
+}
+
+
+logout(){
+  this.authService.logout();
+  localStorage.setItem("isLoggedIn", JSON.stringify(false));
+  console.log(localStorage.getItem('isLoggedIn'))
+}
+
+login(){
+  this.authService.login();
+  localStorage.setItem("isLoggedIn", JSON.stringify(true));
 }
 }
 

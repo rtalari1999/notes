@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'app-users',
   standalone: true,
   imports: [RouterLink, RouterOutlet],
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  templateUrl: './users.component.html',
+  styleUrl: './users.component.css'
 })
-export class ProfileComponent implements OnInit{
+export class UsersComponent  implements OnInit{
   user!: { id: string; name: string; } ;
   constructor(private route: ActivatedRoute, private router:Router){
 
@@ -25,10 +25,5 @@ export class ProfileComponent implements OnInit{
         }
     })
   }
-
-  profileofRama(){
-    this.router.navigate(['/profile',4,'Rama'], {queryParams:{page:1, search:'Rama'}, fragment:'loading'})
-  }
-
 
 }
