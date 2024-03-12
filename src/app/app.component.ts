@@ -20,5 +20,25 @@ export class User{
 export class AppComponent {
   title = 'notes';
 
+  /**
+   * 
+   * localstorage and session storage
+   */
+
+  constructor(){
+    console.log('________local storage')
+  }
+
+  login(){
+    localStorage.setItem('isLoggedIn', 'true');
+    sessionStorage.setItem('isSessionStorage', 'true');
+  }
+
+  logout(){
+    localStorage.setItem('isLoggedIn', 'false');
+    sessionStorage.setItem('isSessionStorage', 'false');
+
+  }
+
 
 }
