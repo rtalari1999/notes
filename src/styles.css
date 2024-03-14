@@ -3,3 +3,7 @@
 .fs-10 {
     font-size: 10px !important;
 }
+
+.row > * {
+    padding: 0;
+}

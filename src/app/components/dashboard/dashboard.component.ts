@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { RouterOutlet } from '@angular/router';
+import { Route, Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,5 +10,12 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+constructor(private router: Router){}
 
+  loadTopic(topic:string){
+    console.log(topic, '________')
+    if(topic === 'Directives'){
+      this.router.navigate(['angular-topics/directives'])
+    }
+  }
 }

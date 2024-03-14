@@ -1,6 +1,6 @@
 
-<ul class="list-group list-group-flush">
-    @for(concept of angularConcept; track angularConcept){
-    <li class="list-group-item "><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">{{concept.name}}</a></li>
+<ul class="list-group list-group-flush" >
+    @for(concept of angularConcept; track angularConcept ;let index = $index){
+    <li class="list-group-item activate" [class.topic]="topicName == concept.name"><a class="nav-link" routerLinkActive="active" (click)="loadTopic(concept.name)">{{concept.name}}</a></li>
     }
 </ul>
