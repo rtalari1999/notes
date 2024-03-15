@@ -29,6 +29,7 @@ export class RegisterComponent {
     if(this.userRegisterForm.valid){
     this.userRegisterForm.value;
     console.log('register', this.userRegisterForm.value)
+    this.error = 'Successfully registered.';
     } else{
       this.error = 'Please enter  all required fields.'
     }

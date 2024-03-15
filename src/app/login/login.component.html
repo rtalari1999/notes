@@ -1,1 +1,40 @@
-<p>login works!</p>
+<div class="card d-flex justify-content-center" style="width: 20rem; left:40%;top:10rem">
+    <div class="container" style="margin-top: 10px;">
+        <h4>Log In</h4>
+        <hr>
+        <form class="row g-3" [formGroup]="userLoginForm" (ngSubmit)="login()">
+            <!-- {{userLoginForm.value | json}} -->
+            <div>
+                <p class="text-danger">{{error}}</p>
+            </div>
+            <div class="col-md-12">
+                <label for="email" class="form-label">Email</label>
+                <input type="email"
+                    [class.is-invalid]="userLoginForm.get('email')?.invalid && userLoginForm.get('email')?.touched"
+                    class="form-control" id="email" formControlName="email">
+                <small [class.d-none]="userLoginForm.get('email')?.valid && userLoginForm.get('email')?.touched"
+                    class="invalid-feedback">Email is required.</small>
+            </div>
+            <div class="col-md-12">
+                <label for="password" class="form-label">Password</label>
+                <input type="password"
+                    [class.is-invalid]="userLoginForm.get('password')?.invalid && userLoginForm.get('password')?.touched"
+                    class="form-control" id="password" formControlName="password">
+                <small
+                    [class.d-none]="userLoginForm.get('password')?.valid && userLoginForm.get('password')?.touched"
+                    class="invalid-feedback">Password is required.</small>
+            </div>
+            <div class="col-12">
+                <a href="/">Forgot Password ?</a>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary col-12">Login</button>
+            </div>
+
+            <div class="col-12">
+                <span>Don't have an accout ?</span><a href="/register">click here</a>
+            </div>
+
+        </form>
+    </div>
+</div>

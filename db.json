@@ -1,0 +1,20 @@
+{
+    "userDetails":[
+        {
+           "email":"",
+           "password":"",
+           "address":"",
+           "address2":"",
+           "city":"",
+           "state":"",
+           "zip":"" 
+        }
+    ],
+
+    "productList":[
+        {
+            "pName":"xyz",
+            "pDescription":"xyz"
+        }
+    ]
+}

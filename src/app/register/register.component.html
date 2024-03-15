@@ -1,43 +1,54 @@
-<div class="container" style="margin-top: 10px;">
-<form class="row g-3" [formGroup]="userRegisterForm" (ngSubmit)="register()">
-    {{userRegisterForm.value | json}}
-    <div>
+<div class="card d-flex justify-content-center" style="width: 25rem; left:40%; top:5rem">
+  <div class="container">
+    <h4> Register</h4>
+    <hr>
+    <form class="row g-3" [formGroup]="userRegisterForm" (ngSubmit)="register()">
+      <!-- {{userRegisterForm.value | json}} -->
+      <div>
         <p class="text-danger">{{error}}</p>
-    </div>
-    <div class="col-md-6">
-      <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" formControlName="email">
-    </div>
-    <div class="col-md-6">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password" formControlName="password">
-    </div>
-    <div class="col-12">
-      <label for="Address" class="form-label">Address</label>
-      <input type="text" class="form-control" id="Address" placeholder="1234 Main St" formControlName="address">
-    </div>
-    <div class="col-12">
-      <label for="address2" class="form-label">Address 2</label>
-      <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor" formControlName="address2">
-    </div>
-    <div class="col-md-6">
-      <label for="inputCity" class="form-label">City</label>
-      <input type="text" class="form-control" id="inputCity" formControlName="city">
-    </div>
-    <div class="col-md-4">
-      <label for="inputState" class="form-label">State</label>
-      <select id="inputState" class="form-select" formControlName="state">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="col-md-2">
-      <label for="inputZip" class="form-label">Zip</label>
-      <input type="text" class="form-control" id="inputZip" formControlName="zip">
-    </div>
-   
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Sign in</button>
-    </div>
-  </form>
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" [class.is-invalid]="userRegisterForm.get('email')?.invalid && userRegisterForm.get('email')?.touched" class="form-control" id="email" formControlName="email">
+        <small [class.d-none]="userRegisterForm.get('email')?.valid && userRegisterForm.get('email')?.touched" class="invalid-feedback">Email is required.</small>
+      </div>
+      <div class="col-md-6">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" [class.is-invalid]="userRegisterForm.get('password')?.invalid && userRegisterForm.get('password')?.touched" class="form-control" id="password" formControlName="password">
+        <small [class.d-none]="userRegisterForm.get('password')?.valid && userRegisterForm.get('password')?.touched" class="invalid-feedback">Password is required.</small>
+      </div>
+      <div class="col-12">
+        <label for="Address" class="form-label">Address</label>
+        <input type="text" class="form-control" id="Address" placeholder="1234 Main St" formControlName="address">
+      </div>
+      <div class="col-12">
+        <label for="address2" class="form-label">Address 2</label>
+        <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor"
+          formControlName="address2">
+      </div>
+      <div class="col-md-6">
+        <label for="inputCity" class="form-label">City</label>
+        <input type="text" class="form-control" id="inputCity" formControlName="city">
+      </div>
+      <div class="col-md-4">
+        <label for="inputState" class="form-label">State</label>
+        <select id="inputState" class="form-select" formControlName="state">
+          <option selected>Choose...</option>
+          <option>...</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="inputZip" formControlName="zip">
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary col-12">create</button>
+      </div>
+
+      <div class="col-12 d-flex justify-content-end">
+        <span>Already have an accout ?</span><a href="/login">click here</a>
+      </div>
+    </form>
+  </div>
 </div>

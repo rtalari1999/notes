@@ -9,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  logout():void{
+    localStorage.setItem('login', 'false')
+  }
+
 }
