@@ -1,10 +1,20 @@
 <div class="container">
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
+    @for(item of products; track products){
+        <div class="card mb-3" style="max-width: 840px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{item.image}}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.pName}}</h5>
+                  <p class="card-text"> <span class="bg-success-subtle">3.6<i class="bi bi-star"></i></span> (2,545)</p>
+                  <h5 class="card-text"><span>{{item.pPrice | currency:'INR'}}</span><span class="text-decoration-line-through m-1 fw-light">{{item.pPrice | currency:'INR'}}</span><span class="m-1 text-success">10% off</span></h5>
+                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  <p class="card-text"><small class="text-body-secondary">Get it by 20-40% off</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+    }
 </div>
