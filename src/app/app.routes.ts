@@ -6,13 +6,13 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { authGuard, authGuardChild } from './auth.guard';
+import { authDeactivate, authGuard, authGuardChild } from './auth.guard';
 
 export const routes: Routes = [
     {path:'', component:HomeComponent},//http://localhost:4200/login
     {path:'profile',
     component:ProfileComponent,
-    canActivateChild: [ authGuardChild],canActivate:[authGuard],
+    canActivateChild: [ authGuardChild],canActivate:[authGuard], canDeactivate: [authDeactivate],
      children: [
         {
             path:'view',
