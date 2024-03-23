@@ -5,6 +5,7 @@ import { authenticationGuard } from './authentication.guard';
 import { HomeComponent } from './home/home.component';
 import { FilterProductComponent } from './filter-product/filter-product.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SelectedProductComponent } from './selected-product/selected-product.component';
 
 export const routes: Routes = [
     {
@@ -27,6 +28,10 @@ export const routes: Routes = [
             {
                 path: 'filter/:name/:brand',
                 component: FilterProductComponent
+            },
+            {
+                path: 'selected',
+                component: SelectedProductComponent
             }
         ]
     },
