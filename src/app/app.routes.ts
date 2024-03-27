@@ -15,6 +15,7 @@ import { ModulesComponent } from './components/topics/modules/modules.component'
 import { PipesComponent } from './components/topics/pipes/pipes.component';
 import { ServicesComponent } from './components/topics/services/services.component';
 import { AngularFormsComponent } from './components/topics/angular-forms/angular-forms.component';
+import { DatabindingComponent } from './components/databinding/databinding.component';
 
 export const routes: Routes = [
     {
@@ -37,6 +38,10 @@ export const routes: Routes = [
             {
                 path:'components',
                 component:ComponentComponent
+            },
+            {
+                path:'data-binding',
+                component:DatabindingComponent
             },
             {
                 path:'decorators',

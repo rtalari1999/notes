@@ -34,6 +34,8 @@ export class SidebarComponent implements OnInit{
     if(topic === 'Components'){
       this.router.navigate(['angular-topics/components'])
       document.getElementsByClassName('activate')
+    } else if(topic === 'Data Binding'){
+      this.router.navigate(['angular-topics/data-binding'])
     } else if(topic === 'Directives'){
       this.router.navigate(['angular-topics/directives'])
     } else if(topic === 'Decorators'){
